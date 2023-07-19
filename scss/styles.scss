@@ -1,0 +1,78 @@
+@import "reset";
+
+// Variables 
+
+$c-lightgray: lightgray;
+$c-lightblue: rgb(112, 112, 222);
+$c-white: #fff;
+
+$fw-bold: 700;
+
+body {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background-color: $c-lightgray;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.75rem;
+
+    height: 15vh;
+    background-color: $c-lightblue;
+    box-shadow: 0px 0px 10px black;
+
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: $fw-bold;
+    }
+
+    button {
+        font-size: 1rem;
+        border: none;
+        padding: 0.8rem 1rem;
+        border-radius: 1rem;
+        cursor: pointer;
+        background-color: $c-lightgray;
+    }
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-auto-rows: auto;
+}
+
+.add-book {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+
+    padding: 1rem 1.1rem;
+    border-radius: 50%;
+    border: none;
+    background-color: $c-lightblue;
+    cursor: pointer;
+
+    transition: 0.25s ease-in-out;
+
+    i {
+        color: $c-white;
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        transform: rotate(180deg) scale(1.2);
+    }
+}
+
+footer {
+    padding: 1rem 0;
+    margin: 0 auto;
+}
