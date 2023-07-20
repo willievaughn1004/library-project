@@ -208,11 +208,18 @@ main {
   font-size: 1.2rem;
   padding: 1rem;
   width: 90%;
+  border-radius: 1rem;
+  border: none;
+}
+.modal-content #title:focus, .modal-content #author:focus, .modal-content #pages:focus, .modal-content button:focus {
+  outline: none;
 }
 .modal-content button {
   font-size: 1.2rem;
   padding: 0.8rem 1rem;
   width: 90%;
+  background-color: rgb(112, 112, 222);
+  cursor: pointer;
 }
 .modal-content fieldset {
   font-size: 1.2rem;
@@ -227,12 +234,16 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  border-radius: 1rem;
   background-color: #fff;
   height: 15rem;
 }
 .card button {
   width: 80%;
   height: 15%;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 .add-book {

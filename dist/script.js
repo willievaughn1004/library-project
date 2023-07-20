@@ -5,8 +5,13 @@ const addButton = document.querySelector('.add-book')
 const modal = document.querySelector('.modal')
 const modalContent = document.querySelector(".modal-content")
 
+const submitButton = document.querySelector("#submit");
+
+
+// Array of books
 let myLibrary = [];
 
+// Constructor function that creates a new book.
 function Book(name, author, pages, read) {
     this.name = name;
     this.author = author;
@@ -14,9 +19,22 @@ function Book(name, author, pages, read) {
     this.read = read;
 }
 
-function makeBook(name, author, pages, read) {
-    const book = new Book(name, author, pages, read);
+// Loops through library and displays the books within.
+function addBookToLibrary() {
 
+    // Prevents submit from reloading page
+    event.preventDefault();
+
+    // Collects form data
+    const titleInput = document.querySelector("#title");
+    const authorInput = document.querySelector("#author");
+    const pagesInput = document.querySelector("#pages");
+    const readInput = document.querySelector("#read");
+
+    // Creates book
+    const book = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
+
+    // Creates card div
     const card = document.createElement('div');
     card.setAttribute("class", "card");
 
@@ -33,36 +51,41 @@ function makeBook(name, author, pages, read) {
     card.append(pageCount);
 
     const readButton = document.createElement('button')
-    readButton.textContent = "Read";
+    readButton.textContent = (book.read) ? "Read" : "Not read";
+    readButton.style.backgroundColor = (readButton.textContent === "Read") ? 'lightblue' : 'lightred';
     card.append(readButton);
 
     const removeButton = document.createElement('button')
     removeButton.textContent = "Remove";
     card.append(removeButton);
 
+    // Adds card to main container
     main.append(card)
 
-    return;
+    // Turns off modal
+    popModal();
+
+    // Adds event listener for card buttons
+    readButton.addEventListener('click', function() {
+        readButton.textContent = (readButton.textContent === "Read") ? "Not read" : "Read";
+        readButton.style.backgroundColor = (readButton.textContent === "Read") ? 'lightblue' : 'red';
+    })
+
+    removeButton.addEventListener('click', function() {
+        main.removeChild(card);
+    })
 }
 
-function addBookToLibrary(num) {
-    for (let i = 0; i < num; i++) {
-        makeBook("Willie", "Vaughn", 100, "Yes");   
-    }
-}
-
-function addBookToLibr() {
+function popModal() {
     modal.classList.toggle("active");
     modalContent.classList.toggle("active")
 }
 
-addBookToLibrary(10);
+addButton.addEventListener("click", popModal);
+submitButton.addEventListener("click", addBookToLibrary)
 
 window.addEventListener("click", function(e) {
     if (e.target === modal) {
-        modal.classList.toggle("active")
-        modalContent.classList.toggle("active")
+        popModal()
     }
-})
-
-addButton.addEventListener("click", addBookToLibr)
+});
