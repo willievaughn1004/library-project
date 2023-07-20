@@ -8,7 +8,8 @@
       src="https://kit.fontawesome.com/28f50c9793.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./css/styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>Document</title>
   </head>
   <body>
@@ -16,9 +17,27 @@
       <h1>Dank Library</h1>
       <button class="log-in">Log in</button>
     </header>
-    <main>
+    <main id="main">
       <button class="add-book"><i class="fa-solid fa-plus"></i></button>
+      <div class="modal">
+        <form class="modal-content">
+          <h1>Add new book</h1>
+          <input placeholder="Title" name="title" id="title" />
+          <input placeholder="Author" name="author" id="author" />
+          <input placeholder="Pages" name="pages" id="pages" />
+
+          <fieldset>
+            <label for="read">Have you read it?</label>
+            <input type="checkbox" name="read" id="read" />
+          </fieldset>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </main>
-    <footer>Copyright <i class="fa-solid fa-copyright"></i> 2023 willievaughn1004 <i class="fa-brands fa-github"></i></footer>
+    <footer>
+      Copyright <i class="fa-solid fa-copyright"></i> 2023 willievaughn1004
+      <i class="fa-brands fa-github"></i>
+    </footer>
   </body>
 </html>
