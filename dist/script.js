@@ -7,7 +7,7 @@ const modalContent = document.querySelector(".modal-content");
 const submitButton = document.querySelector("#submit");
 
 // Array of books
-let myLibrary = [];
+const myLibrary = [];
 
 // Constructor function that creates a new book.
 function Book(name, author, pages, read, display) {
@@ -51,6 +51,7 @@ function addToDisplay() {
 
   for (let i = 0; i <= myLibrary.length; i++) {
     if (myLibrary[i].displayed) {
+      myLibrary[i][data - index] = i;
       continue;
     } else {
       myLibrary[i].displayed === true;
@@ -91,13 +92,12 @@ function addToDisplay() {
         readButton.textContent === "Read" ? "lightblue" : "red";
     });
 
-    removeButton.addEventListener("click", function () {
-      myLibrary.splice = (0, 1);
+    removeButton.addEventListener("click", function (event) {
       main.removeChild(card);
     });
 
+    console.log(myLibrary);
     myLibrary[i].displayed = true;
-    console.log(myLibrary[i].displayed);
     main.append(card);
 
     // Toggles Modal
