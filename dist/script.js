@@ -1,3 +1,5 @@
+// Still need to set way to remove items from myLibrary array
+
 // Variables
 
 const main = document.querySelector("#main");
